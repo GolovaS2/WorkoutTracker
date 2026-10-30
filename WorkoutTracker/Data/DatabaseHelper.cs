@@ -89,5 +89,49 @@ namespace WorkoutTracker.Data
                 return -1;
             }
         }
+        // Выполняет параметризованный SQL-запрос, который не возвращает данные (INSERT, UPDATE, DELETE).
+        public int ExecuteNonQueryWithParams(string query, List<KeyValuePair<string, object>> parameters)
+        {
+            int rowsAffected = -1;
+
+            try
+            {
+                using (SqlConnection connection = GetConnection())
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        // Добавляем параметры к команде
+                        if (parameters != null)
+                        {
+                            foreach (var param in parameters)
+                            {
+                                command.Parameters.AddWithValue(param.Key, param.Value ?? DBNull.Value);
+                            }
+                        }
+
+                        rowsAffected = command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Ошибка базы данных: {ex.Message}\n\n" +
+                                $"Номер ошибки: {ex.Number}",
+                                "Ошибка",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Произошла непредвиденная ошибка: {ex.Message}",
+                                "Ошибка",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Error);
+            }
+
+            return rowsAffected;
+        }
     }
 }

@@ -1,0 +1,162 @@
+﻿<Window x:Class="WorkoutTracker.AddExerciseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WorkoutTracker"
+        mc:Ignorable="d"
+        Title="Добавление нового упражнения"
+        Height="350"
+        Width="500"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+
+    <Grid Margin="25">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <TextBlock Grid.Row="0"
+                   Text="Введите данные нового упражнения"
+                   FontSize="20"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,20"
+                   Foreground="#2C3E50"/>
+
+        <!-- Поле: Название упражнения -->
+        <Grid Grid.Row="1" Margin="0,0,0,12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0"
+                       Text="Название:"
+                       FontSize="14"
+                       FontWeight="SemiBold"
+                       VerticalAlignment="Center"/>
+
+            <TextBox Grid.Column="1"
+                     Name="tbName"
+                     FontSize="14"
+                     Padding="8,5"
+                     VerticalContentAlignment="Center"/>
+        </Grid>
+
+        <!-- Поле: Категория -->
+        <Grid Grid.Row="2" Margin="0,0,0,12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0"
+                       Text="Категория:"
+                       FontSize="14"
+                       FontWeight="SemiBold"
+                       VerticalAlignment="Center"/>
+
+            <ComboBox Grid.Column="1"
+                      Name="cmbCategory"
+                      FontSize="14"
+                      Height="35"
+                      VerticalContentAlignment="Center"
+                      IsEditable="True"
+                      ToolTip="Выберите существующую категорию или введите новую"/>
+        </Grid>
+
+        <!-- Поле: Группа мышц -->
+        <Grid Grid.Row="3" Margin="0,0,0,12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0"
+                       Text="Группа мышц:"
+                       FontSize="14"
+                       FontWeight="SemiBold"
+                       VerticalAlignment="Center"/>
+
+            <TextBox Grid.Column="1"
+                     Name="tbMuscleGroup"
+                     FontSize="14"
+                     Padding="8,5"
+                     VerticalContentAlignment="Center"/>
+        </Grid>
+
+        <!-- Подсказка -->
+        <TextBlock Grid.Row="4"
+                   Text="* Все поля обязательны для заполнения"
+                   FontSize="12"
+                   Foreground="#7F8C8D"
+                   Margin="0,0,0,20"/>
+
+        <!-- Пустая строка для отступа -->
+        <Grid Grid.Row="5"/>
+
+        <!-- Кнопки управления -->
+        <StackPanel Grid.Row="6"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,0,0">
+            <!-- Кнопка "Добавить" -->
+            <Button Name="btnAdd"
+                    Content="Добавить"
+                    FontSize="16"
+                    Padding="25,10"
+                    Background="#27AE60"
+                    Foreground="White"
+                    BorderThickness="0"
+                    Cursor="Hand"
+                    Margin="0,0,10,0"
+                    Click="BtnAdd_Click">
+
+                <Button.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#27AE60"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#219A52"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <!-- Кнопка "Отмена" -->
+            <Button Name="btnCancel"
+                    Content="Отмена"
+                    FontSize="16"
+                    Padding="25,10"
+                    Background="#95A5A6"
+                    Foreground="White"
+                    BorderThickness="0"
+                    Cursor="Hand"
+                    Click="BtnCancel_Click">
+
+                <Button.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#95A5A6"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#7F8C8D"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
+            

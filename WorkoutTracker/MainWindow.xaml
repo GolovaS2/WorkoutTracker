@@ -97,5 +97,87 @@
                            Text="Записей: 0"/>
             </StatusBarItem>
         </StatusBar>
+        <!-- Строка 2: Панель с кнопками -->
+        <StackPanel Grid.Row="2"
+            Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            Margin="0,0,0,15">
+
+            <!-- Кнопка загрузки данных -->
+            <Button Name="btnLoad"
+            Content="Загрузить упражнения"
+            FontSize="16"
+            Padding="20,10"
+            Background="#3498DB"
+            Foreground="White"
+            BorderThickness="0"
+            Cursor="Hand"
+            Click="BtnLoad_Click">
+
+                <Button.Resources>
+                    <!-- Стиль для кнопки при наведении мыши -->
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#3498DB"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#2980B9"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <!-- Кнопка добавления упражнения -->
+            <Button Name="btnAdd"
+            Content="Добавить упражнение"
+            FontSize="16"
+            Padding="20,10"
+            Background="#27AE60"
+            Foreground="White"
+            BorderThickness="0"
+            Cursor="Hand"
+            Click="BtnAdd_Click"
+            Margin="0,0,10,0">
+
+                <Button.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#27AE60"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#219A52"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <!-- Кнопка удаления упражнения -->
+            <Button Name="btnDelete"
+            Content="Удалить выбранное"
+            FontSize="16"
+            Padding="20,10"
+            Background="#E74C3C"
+            Foreground="White"
+            BorderThickness="0"
+            Cursor="Hand"
+            Click="BtnDelete_Click">
+
+                <Button.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#E74C3C"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#C0392B"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+        </StackPanel>
     </Grid>
 </Window>
+    
